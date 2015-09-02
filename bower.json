@@ -1,0 +1,13 @@
+{
+  "name": "npm-bower-gulp",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "foundation": "*"
+  },
+  "devDependencies": {
+    "chai": "~3.2.0",
+    "mocha": "~2.3.0"
+  }
+}
