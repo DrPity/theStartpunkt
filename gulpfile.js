@@ -1,3 +1,5 @@
+//some gulp config parts are based on patchwork from ayamflow (https://github.com/ayamflow/patchwork)
+
 var browserSync = require('browser-sync');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var fs = require('fs');
