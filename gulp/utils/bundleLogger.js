@@ -1,3 +1,5 @@
+//taken from ayamflow - patchwork:
+
 /* bundleLogger
    ------------
    Provides gulp style logs to the bundle method in browserify.js
