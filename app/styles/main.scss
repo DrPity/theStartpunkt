@@ -7,20 +7,11 @@ body {
   color: #333;
 }
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-
 .bg{
   width:100%;
   height:100%;
   position:fixed;
-  background-size:cover;
-  background: url(../images/home.jpg) no-repeat;
+  text-align: center;
   z-index:-1;
   //x-Achses right: transform: matrix3d(0.99068874576641, 0, 0.136146277994579, 0, -0.00949319195941821, 0.997566048996531, 0.0690786305298062, 0, -0.135814904624635, -0.0697278845903978, 0.988277457899526, 0, 0, 0, 0, 1);
   // x-Achses left: transform: matrix3d(0.99026806874157, 0, -0.139173100960065, 0, 0.00918692989706564, 0.997818907533004, 0.0653684028312472, 0, 0.138869551557953, -0.0660108155504975, 0.988108202516532, 0, 0, 0, 0, 1);

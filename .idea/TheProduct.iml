@@ -8,7 +8,7 @@
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/node_modules/browser-sync/lib/templates" />
+        <option value="$MODULE_DIR$/../TheProduct/node_modules/browser-sync/lib/templates" />
       </list>
     </option>
   </component>
