@@ -3,10 +3,12 @@
   "engines": {
     "node": ">=0.12.0"
   },
+
   "devDependencies": {
     "babel-core": "^5.5.6",
     "browser-sync": "^2.2.1",
     "browserify": "^11.0.1",
+    "browserify-shim": "^3.8.10",
     "del": "^1.1.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
@@ -38,6 +40,12 @@
     "watchify": "*",
     "yargs": "*"
   },
+
+  "Dependencies": {
+    "underscore": "1.8.3",
+    "vue": "*"
+  },
+
   "eslintConfig": {
     "env": {
       "node": true,

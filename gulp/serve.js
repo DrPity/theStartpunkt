@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     reload = browserSync.reload;
 
 // Watch Files For Changes & Reload
-gulp.task('serve', ['clean', 'jshint', 'html' ,'img', 'watch', 'fonts'], function () {
+gulp.task('serve', ['clean', 'jshint', 'browserify', 'html' ,'img', 'watch', 'fonts'], function () {
     browserSync.init(null, {
         // watchTask: true,
         notify: false,
