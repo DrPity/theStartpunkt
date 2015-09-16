@@ -20,7 +20,10 @@ var env = argv.env != "production";
 
 gulp.task('browserify', function()
 {
-    var b = browserify("./app/src/index.js",
+  var b = browserify([
+    './app/src/index.js'
+    //'./app/src/anyOtherFile.js'
+  ],
     {
         cache: {},
         packageCache: {},
