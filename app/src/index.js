@@ -1,4 +1,4 @@
-console.log("Test Jahahahh");
+console.log("Javascript reloads on any saved changes");
 
 var fs = require('fs');
 var Vue = require('vue');

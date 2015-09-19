@@ -19,13 +19,13 @@ gulp.task('serve', ['clean', 'jshint', 'browserify', 'html' ,'img', 'watch', 'fo
     // gulp.watch(['./static/build/**/*.*'], reload);
     gulp.watch([
       './app/*.html',
-      './app/src/components/**/*.js',
+      './app/scripts/*.js',
       './app/src/components/**/*.html',
-      './app/scripts/**/*.js',
       './app/images/**/*',
       '.tmp/fonts/**/*'
     ]).on('change', reload);
 
+    gulp.watch('./app/src/**/*.js', ['browserify']);
     gulp.watch('./app/styles/**/*.scss', ['styles']);
     gulp.watch('./app/fonts/**/*', ['fonts']);
     gulp.watch('./bower.json', ['wiredep', 'fonts']);
