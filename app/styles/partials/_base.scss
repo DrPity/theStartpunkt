@@ -1,0 +1,30 @@
+// Font weights
+$font_dir: '../fonts/';
+
+@function _full-font-url($name, $extension, $format)
+{
+    @return url($font_dir + $name + "." + $extension) format($format);
+}
+
+@mixin register-font($name)
+{
+    @font-face {
+        font-family: $name;
+        font-style: normal;
+        font-weight: normal;
+        src: _full-font-url($name, 'ttf', 'truetype');
+	}
+}
+
+@mixin use-normal-font($name, $weight, $color)
+{
+    font-family: $name, sans-serif;;
+    font-weight: $weight;
+    letter-spacing: 0;
+    color: $color;
+}
+
+@include register-font('SourceSansPro-Regular');
+@include register-font('SourceSansPro-Light');
+@include register-font('SourceSansPro-Bold');
+@include register-font('SourceSansPro-Black');

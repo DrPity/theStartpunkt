@@ -27,9 +27,12 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <component is="home">
-    <!-- content changes when vm.currentview changes! -->
-    </component>
+
+    <div id="wrapper" class"noJS">
+      <component is="home">
+      <!-- content changes when vm.currentview changes! -->
+      </component>
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -47,12 +50,21 @@
     <script src="/bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="/bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <script src="/bower_components/foundation/js/foundation.js"></script>
-    <!-- <script src="/bower_components/vue/dist/vue.js"></script> -->
+    <script src="/bower_components/p5js/docs/js/p5.min.js"></script>
+    <script src="/bower_components/PreloadJS/lib/preloadjs-0.6.1.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <noscript>
+    <style type="text/css">
+        .noJs {display:none;}
+    </style>
+    <div class="noscriptmsg">
+    You don't have javascript enabled.  Good luck with that.
+    </div>
+    </noscript>
     <!-- endbuild -->
   </body>
 </html>

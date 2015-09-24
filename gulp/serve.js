@@ -20,11 +20,12 @@ gulp.task('serve', ['clean', 'jshint', 'browserify', 'html' ,'img', 'watch', 'fo
     gulp.watch([
       './app/*.html',
       './app/scripts/*.js',
-      './app/src/components/**/*.html',
       './app/images/**/*',
-      '.tmp/fonts/**/*'
+      '.tmp/fonts/**/*',
+      '.tmp/styles/**/*'
     ]).on('change', reload);
 
+    gulp.watch('./app/src/components/**/*.html', ['browserify']);
     gulp.watch('./app/src/**/*.js', ['browserify']);
     gulp.watch('./app/styles/**/*.scss', ['styles']);
     gulp.watch('./app/fonts/**/*', ['fonts']);

@@ -1,5 +1,27 @@
 'use strict';
 
 module.exports = {
-    template: require('./home.html')
+
+  inherit: true,
+  replace: true,
+  template: require('./home.html'),
+
+  data: function() {
+    return {
+    };
+  },
+
+  ready: function() {
+
+  },
+
+  beforeDestroy: function() {
+
+  },
+
+  methods: {
+
+  },
+
+  // setValue: setValue
 };
