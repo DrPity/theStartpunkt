@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
     gulpLoadPlugins = require('gulp-load-plugins');
     // uncss = require('gulp-uncss');
-    minifyCss = require('gulp-minify-css');
+    minifyCss = require('gulp-cssnano');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
