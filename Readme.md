@@ -27,5 +27,5 @@
 
 ## Additional information
 
-- Vues.js as MVVM two way data binding - use with directives
-- Dependencies as combination of npm/github and bower
+- Vues.js as MVVM so two way data binding with directives etc. (Good stuff)
+- Dependencies as combination of npm and bower
