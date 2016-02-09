@@ -9,7 +9,6 @@
 - Watches and serves all files on change
 - BrowserSync for browser testing and live load
 
----
 
 ### install
 - Additionally install to a distribution path
