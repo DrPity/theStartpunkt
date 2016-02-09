@@ -1,6 +1,3 @@
-$regular: 'SourceSansPro-Regular';
-
-
 body {
   background: #000;
   @include use-normal-font($regular, 400, rgb(255, 255, 255));

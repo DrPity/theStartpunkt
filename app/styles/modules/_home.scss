@@ -1,0 +1,17 @@
+@charset "utf-8";
+#wrapper .bg{
+  width:100%;
+  height: 100vh;
+  background-position:50% 50%;
+  background-size: cover;
+  position:fixed;
+  @include use-normal-font($regular, 400, rgb(255, 255, 255));
+
+  color:$white;
+
+  p{
+    position:relative;
+    top: 90%;
+    text-align: center;
+  }
+}

@@ -1,42 +1,77 @@
+module.exports = {
+  getRouter: function(){
+    return startApp.router;
+  }
+};
 
+var $ = require('jquery');
 var Vue = require('vue');
+var Router = require('vue-router');
 
-app = {};
+Vue.use(Router);
 
-app.mainView = function (){
-  return;
-};
+function App(url){
+  this.router = new Router({
+    history: false,
+    transitionOnLoad: true,
+    saveScrollPosition: true,
+  });
+  this.model = {};
+  this.init(url);
+}
 
-app.setVariable = function(vue, variable, value){
-  vue.$set(variable,value);
-};
+App.prototype.init = function (url) {
+  var _this = this;
+  $.when(_this.readJson(url)).then(function(data) {
+    console.log(data);
+    _this.model = data;
 
-app.getVariable = function(vue, variable){
-  return view.$get(variable);
-};
-
-
-app.setView = function(vue, view){
-  vue.$set('currentView', view);
-};
-
-app.getView = function(vue){
-  return vue.currentView;
-};
-
-app.newVue = function(element, dataAtrributes, component){
-  console.log(component);
-  return new Vue({
-    el: element,
-    data: dataAtrributes,
-    components: component
+    //load the jävla model here:
+    var RoutedApp = Vue.extend({
+      data: function() {
+        return data;
+      },
+      created: function() {
+        //do stuff her that dep. on model and the build DOM struct. e.g.:
+        //  $(document).foundation();
+        console.log("Created");
+      }
+    });
+    _this.createRouterMap();
+    _this.redirectionMap();
+    _this.router.start(RoutedApp, '#wrapper');
   });
 };
 
+App.prototype.readJson = function (url) {
+  console.log("In read Json");
+  return $.getJSON(url).then(function(data){
+      console.log(JSON.stringify(data, null, 2));
+    return data;
+  });
+};
 
-var dataAtrributes = {text: 'Some test content which can be dynamically injected'};
-var component = { home : require('./components/home'), };
+App.prototype.createRouterMap = function () {
+    this.router.map({
+    '*':{
+      component: require('./components/home'),
+    },
+    '/': {
+      component: require('./components/home'),
+      },
+  });
 
-app.mainView = app.newVue('#wrapper', dataAtrributes, component);
-console.log(app.mainView);
-Preloader.init();
+};
+
+
+App.prototype.redirectionMap = function () {
+
+  this.router.redirect({
+    //just an example
+    '*': '/'
+  });
+
+};
+
+//global variable for debugging. You can also use the vue dev. browser plugin
+window.startApp = new App('./assets/model.json');

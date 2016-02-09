@@ -1,7 +1,7 @@
-// bower:scss
-// endbower
 // Partials
-@import "partials/base";
-// Modules and Variables
+@import "partials/fonts";
+@import "partials/variables";
+// Modules
 @import "modules/constants";
-@import "modules/all";
+@import "partials/transitions";
+@import "modules/home";

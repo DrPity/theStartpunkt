@@ -1,5 +1,3 @@
-<div class="bg">
-
-  <a href="#">{{text}}</a>
-
+<div class="bg" v-bind:style="setBackground(item)" transition="fade">
+  <p><strong>{{text | uppercase}}</strong></p>
 </div>

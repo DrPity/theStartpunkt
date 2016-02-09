@@ -5,33 +5,32 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>theStartpunkt</title>
-
     <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
     <!-- Place favicon.ico in the root directory -->
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/foundation/css/foundation.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <!-- endbuild -->
+
+
     <div id="wrapper" class"noJS">
-      <component is="home">
-      <!-- content changes when vm.currentview changes! -->
-      </component>
+      <router-view
+      :text="text"
+      :image="image">
+      </router-view>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -42,29 +41,14 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="/bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="/bower_components/jquery-placeholder/jquery.placeholder.js"></script>
-    <script src="/bower_components/foundation/js/foundation.js"></script>
-    <script src="/bower_components/p5js/docs/js/p5.min.js"></script>
-    <script src="/bower_components/PreloadJS/lib/preloadjs-0.6.1.min.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <noscript>
     <style type="text/css">
         .noJs {display:none;}
     </style>
     <div class="noscriptmsg">
-    You don't have javascript enabled.  Good luck with that.
+      You have nooo js script. Bajs!
     </div>
     </noscript>
-    <!-- endbuild -->
   </body>
 </html>

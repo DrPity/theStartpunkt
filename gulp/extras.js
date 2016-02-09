@@ -1,10 +1,9 @@
-var gulp = require('gulp')
+var gulp = require('gulp');
 
 gulp.task('extras', function(){
   return gulp.src([
-    'app/*.*',
-    '!app/*.html'
+    'app/assets/**/*'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(gulp.dest('dist/assets/'));
 });

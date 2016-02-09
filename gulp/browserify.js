@@ -2,62 +2,73 @@
 // process.env.BROWSERIFYSHIM_DIAGNOSTICS = 1;
 
 var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    notify = require("gulp-notify"),
-    argv = require('yargs').argv,
+    notify = require('gulp-notify'),
     browserify = require('browserify'),
-    watchify = require('watchify'),
     remapify = require('remapify'),
     gStreamify = require('gulp-streamify'),
     uglify = require('gulp-uglify'),
     bundleLogger = require('./utils/bundleLogger'),
     handleErrors = require('./utils/handleErrors'),
     source = require('vinyl-source-stream'),
-    stringify = require('stringify');
+    stringify = require('stringify'),
+    _= require('lodash'),
+    bowerResolve = require('bower-resolve');
+    argv = require('yargs')
+    .default({path : 'tmp'})
+    .default({env : false})
+    .argv;
 
-var env = argv.env != "production";
+var env = argv.env == "production";
 
 gulp.task('browserify', function()
 {
+  console.log("The env flag:", env);
   var b = browserify([
-    './app/src/index.js'
-    // './app/src/anyOtherFile.js'
+    './app/src/index.js',
   ],
     {
-        cache: {},
-        packageCache: {},
-        debug: env,
-        fullPaths: true,
-        transform: stringify ({extensions: ['.html'], minify: true
+      cache: {},
+      packageCache: {},
+      fullPaths: true,
+      transform: stringify ({extensions: ['.html'], minify: env
       })
     }),
     file = 'main.js',
-    folder = './app/scripts/';
+    folder = './dist/scripts/';
 
-    var bundler = global.isWatching ? watchify(b) : b;
-    // var bundler = watchify(b);
+    getBowerPackageIds().forEach(function (id) {
+      var resolvedPath = bowerResolve.fastReadSync(id);
+      console.log(resolvedPath);
+      console.log(id);
+      b.require(resolvedPath, {
+        expose: id
+      });
+    });
 
-    bundler.plugin(remapify, ['components', 'scripts', 'src', 'styles'].map(function(folder) {
-        return {
-            src: './**/*.js',
-            expose: folder,
-            cwd: process.cwd() + '/src/' + folder
-        };
-    }));
+    var bundler = b;
 
     var bundle = function() {
         bundleLogger.start();
-
         return bundler.bundle()
         .on('error', handleErrors)
         .pipe(source(file))
-        .pipe(argv.env != "production" ? gutil.noop() : gStreamify(uglify()))
+        .pipe(env ? gStreamify(uglify()) : gutil.noop())
         .pipe(gulp.dest(folder))
         .on('end', bundleLogger.end);
     };
 
-    if(global.isWatching) bundler.on('update', bundle);
-
     return bundle();
 });
+
+function getBowerPackageIds() {
+  // read bower.json and get dependencies' package ids
+  var bowerManifest = {};
+  try {
+    bowerManifest = require('../bower.json');
+  } catch (e) {
+    console.log("no bower json");
+  }
+  return _.keys(bowerManifest.dependencies) || [];
+
+}

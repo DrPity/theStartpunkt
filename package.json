@@ -5,9 +5,9 @@
   },
 
   "devDependencies": {
-    "babel-core": "^5.5.6",
     "browser-sync": "^2.2.1",
     "browserify": "^11.0.1",
+    "bower-resolve": "*",
     "browserify-shim": "^3.8.10",
     "del": "^1.1.1",
     "gulp": "^3.9.0",
@@ -22,6 +22,7 @@
     "gulp-minify-html": "^1.0.0",
     "gulp-notify": "*",
     "gulp-plumber": "^1.0.1",
+    "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.0.0",
     "gulp-size": "^1.2.1",
     "gulp-sourcemaps": "^1.5.0",
@@ -29,33 +30,21 @@
     "gulp-uglify": "^1.1.0",
     "gulp-useref": "^1.1.1",
     "gulp-util": "*",
+    "imagemin-pngquant": "^4.1.0",
+    "imagemin-jpegtran": "^4.1.0",
+    "imagemin-gifsicle": "^4.1.0",
+    "jshint": "*",
     "jshint-stylish": "*",
+    "jquery": "*",
     "main-bower-files": "^2.5.0",
-    "opn": "^1.0.1",
-    "pretty-hrtime": "*",
     "remapify": "*",
     "stringify": "^3.1.0",
     "vinyl-source-stream": "*",
-    "wiredep": "^2.2.2",
-    "watchify": "*",
     "yargs": "*"
   },
 
-  "Dependencies": {
-    "underscore": "1.8.3",
-    "vue": "*"
-  },
-
-  "eslintConfig": {
-    "env": {
-      "node": true,
-      "browser": true
-    },
-    "rules": {
-      "quotes": [
-        2,
-        "single"
-      ]
-    }
+  "dependencies": {
+    "vue": "~1.0.10",
+    "vue-router": "*"
   }
 }
