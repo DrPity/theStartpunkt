@@ -4,7 +4,7 @@
 
 ### default:
 - Scss (css precompilation)
-- Browserify to wrap node-type -> `require('something')` e.g. bower components
+- Browserify to wrap node-style -> `require('something')` e.g. bower components
 - Jshint for JS validation
 - Watches and serves all files on change
 - BrowserSync for browser testing and live load
@@ -27,4 +27,4 @@
 ## Additional information
 
 - Vues.js as MVVM so two way data binding with directives etc. (Good stuff)
-- Dependencies as combination of npm and bower
+- Dependencies as a combination of npm and bower
