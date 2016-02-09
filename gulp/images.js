@@ -3,7 +3,6 @@ var gulp = require('gulp'),
 
 const $ = gulpLoadPlugins();
 
-
 gulp.task('images', function(){
     return gulp.src('app/images/**/*')
     .pipe($.if($.if.isFile, $.cache($.imagemin({

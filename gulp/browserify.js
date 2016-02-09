@@ -1,6 +1,3 @@
-// Uncomment to debug browserify + shim
-// process.env.BROWSERIFYSHIM_DIAGNOSTICS = 1;
-
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
@@ -23,7 +20,6 @@ var env = argv.env == "production";
 
 gulp.task('browserify', function()
 {
-  console.log("The env flag:", env);
   var b = browserify([
     './app/src/index.js',
   ],

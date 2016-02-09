@@ -1,6 +1,4 @@
 var gulp = require('gulp');
-var gulpLoadPlugins = require('gulp-load-plugins');
-const $ = gulpLoadPlugins();
 
 // Watch Files For Changes & Reload
 gulp.task('build', ['clean','styles', 'jshint', 'html', 'browserify',
