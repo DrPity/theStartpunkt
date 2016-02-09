@@ -12,8 +12,8 @@
 ---
 
 ### install
-- additionally install to a distribution path
-- uglify,minify and optimize html,css,js and images
+- Additionally install to a distribution path
+- Uglify,minify and optimize html,css,js and images
 
 ---
 
