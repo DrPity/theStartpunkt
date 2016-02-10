@@ -7,6 +7,9 @@ module.exports = {
 var $ = require('jquery');
 var Vue = require('vue');
 var Router = require('vue-router');
+var home = require('./components/home.vue');
+
+
 
 Vue.use(Router);
 
@@ -54,10 +57,10 @@ App.prototype.readJson = function (url) {
 App.prototype.createRouterMap = function () {
     this.router.map({
     '*':{
-      component: require('./components/home'),
+      component: home,
     },
     '/': {
-      component: require('./components/home'),
+      component: home,
       },
   });
 

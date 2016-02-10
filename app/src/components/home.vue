@@ -1,10 +1,16 @@
+<template>
+  <div class="bg" v-bind:style="setBackground(item)" transition="fade">
+    <p><strong>{{text | uppercase}}</strong></p>
+  </div>
+</template>
+
+<script>
 'use strict';
 module.exports = {
 
   inherit: true,
   replace: true,
   name: "home",
-  template: require('./home.html'),
 
   props: {
     text:{
@@ -41,3 +47,4 @@ module.exports = {
 
   // setValue: setValue
 };
+</script>

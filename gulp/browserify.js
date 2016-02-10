@@ -2,15 +2,14 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
     browserify = require('browserify'),
-    remapify = require('remapify'),
     gStreamify = require('gulp-streamify'),
     uglify = require('gulp-uglify'),
     bundleLogger = require('./utils/bundleLogger'),
     handleErrors = require('./utils/handleErrors'),
     source = require('vinyl-source-stream'),
-    stringify = require('stringify'),
     _= require('lodash'),
     bowerResolve = require('bower-resolve');
+    vueify = require('vueify');
     argv = require('yargs')
     .default({path : 'tmp'})
     .default({env : false})
@@ -27,8 +26,7 @@ gulp.task('browserify', function()
       cache: {},
       packageCache: {},
       fullPaths: true,
-      transform: stringify ({extensions: ['.html'], minify: env
-      })
+      transform: vueify
     }),
     file = 'main.js',
     folder = './dist/scripts/';
@@ -49,6 +47,7 @@ gulp.task('browserify', function()
         return bundler.bundle()
         .on('error', handleErrors)
         .pipe(source(file))
+        // add ignoreFiles: ['.combo.js', '-min.js']
         .pipe(env ? gStreamify(uglify()) : gutil.noop())
         .pipe(gulp.dest(folder))
         .on('end', bundleLogger.end);
