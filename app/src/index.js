@@ -18,6 +18,7 @@ function App(url){
     history: false,
     transitionOnLoad: true,
     saveScrollPosition: true,
+    hashbang: false,
   });
   this.model = {};
   this.init(url);
@@ -49,21 +50,25 @@ App.prototype.init = function (url) {
 App.prototype.readJson = function (url) {
   console.log("In read Json");
   return $.getJSON(url).then(function(data){
-      console.log(JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 2));
     return data;
   });
 };
 
 App.prototype.createRouterMap = function () {
-    this.router.map({
+  this.router.map({
     '*':{
       component: home,
     },
     '/': {
       component: home,
-      },
+    },
+    '/async': {
+      component: function (resolve) {
+         loadjs(['test'], resolve);
+      }
+    }
   });
-
 };
 
 

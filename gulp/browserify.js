@@ -8,8 +8,8 @@ var gulp = require('gulp'),
     handleErrors = require('./utils/handleErrors'),
     source = require('vinyl-source-stream'),
     _= require('lodash'),
-    bowerResolve = require('bower-resolve');
-    vueify = require('vueify');
+    bowerResolve = require('bower-resolve'),
+    vueify = require('vueify'),
     argv = require('yargs')
     .default({path : 'tmp'})
     .default({env : false})
@@ -19,15 +19,13 @@ var env = argv.env == "production";
 
 gulp.task('browserify', function()
 {
-  var b = browserify([
-    './app/src/index.js',
-  ],
+  var b = browserify(
     {
       cache: {},
       packageCache: {},
       fullPaths: true,
-      transform: vueify
-    }),
+      transform: vueify,
+    }).plugin('partition-bundle', { map: './app/src/components/map.json', output: './dist/scripts/', url: './scripts/' , main: '../index.js' }),
     file = 'main.js',
     folder = './dist/scripts/';
 
