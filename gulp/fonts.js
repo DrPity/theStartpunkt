@@ -1,4 +1,4 @@
-var gulp = require('gulp')
+var gulp = require('gulp');
 
 gulp.task('fonts', function(){
   return gulp.src(require('main-bower-files')({

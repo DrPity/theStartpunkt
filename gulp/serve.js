@@ -4,7 +4,7 @@ var reload = browserSync.reload;
 
 // Watch Files For Changes & Reload
 //['clean','styles', 'jshint', 'html', 'browserify' ,'images', 'fonts', 'extras']
-gulp.task('serve', ['build', 'watch'], function() {
+gulp.task('serve', ['nodemon','build', 'watch'], function() {
   browserSync.init(null, {
     // watchTask: true,
     notify: false,
