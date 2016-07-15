@@ -6,4 +6,5 @@ node_js:
 
 before_script:
   - npm install -g gulp
+  - bower install
 script: gulp install --env=production
