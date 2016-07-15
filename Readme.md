@@ -1,5 +1,6 @@
-## Tasks (gulp)
+[![Build Status](https://travis-ci.org/DrPity/theStartpunkt.svg?branch=master)](https://travis-ci.org/DrPity/theStartpunkt)
 
+## Tasks (gulp)
 ---
 
 ### default:
